@@ -1,0 +1,1 @@
+﻿ping -t 192.168.6.13 |Foreach{"{0} - {1}" -f (Get-Date),$_}>>f:\pingINfo.log

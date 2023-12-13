@@ -1,0 +1,1 @@
+﻿Get-ADUser  -properties PasswordLastSet, PasswordExpired, PasswordNeverExpires -filter *|Where-Object PasswordExpired -EQ $true | ft Name, PasswordLastSet, PasswordExpired, PasswordNeverExpires | Tee-Object C:\users\pksystem2\Desktop\passwordexpired.csv -Append 

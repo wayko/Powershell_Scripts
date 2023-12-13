@@ -1,0 +1,1 @@
+﻿Start-Process -WorkingDirectory "H:\Firefox Downloads\WFCUT_23A\WFBS" -FilePath "SCUT.exe" -ArgumentList "-noinstall -dbg"

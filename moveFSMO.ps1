@@ -1,0 +1,1 @@
+Move-ADDirectoryServerOperationMasterRole -Identity DCName -OperationMasterRole 0,1,2,3,4 -Confirm:$false -Force

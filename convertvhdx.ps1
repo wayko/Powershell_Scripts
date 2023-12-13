@@ -1,0 +1,1 @@
+Convert-VHD -Path 'C:\virtual\linux\Virtual Hard Disks\linux.vhdx' -DestinationPath 'C:\virtual\linuxvhd\Virtual Hard Disks\linux.vhd'

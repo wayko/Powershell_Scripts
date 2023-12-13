@@ -1,0 +1,1 @@
+﻿Set-LocalUser -name "ATOAdmin" -PasswordNeverExpires 1

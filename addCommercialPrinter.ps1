@@ -1,0 +1,5 @@
+﻿Add-PrinterPort -Name "Commercial" -PrinterHostAddress "10.10.10.20"
+Add-PrinterPort -Name "Executive" -PrinterHostAddress "10.10.10.21"
+Add-PrinterDriver -Name "PCL6 V4 Driver for Universal Print" 
+Add-Printer -Name "Commercial" -PortName "Commercial" -DriverName "PCL6 V4 Driver for Universal Print"
+Add-Printer -Name "Executive" -PortName "Executive" -DriverName "PCL6 V4 Driver for Universal Print"
