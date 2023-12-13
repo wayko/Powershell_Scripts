@@ -1,19 +1,10 @@
-﻿Connect-ExchangeOnline -UserPrincipalName atlanticadmin@maillie.com atlanticIT@dynamicaqs.onmicrosoft.com atoadmin@klaskolaw.onmicrosoft.com
+﻿Connect-ExchangeOnline -UserPrincipalName email
 
-Connect-ExchangeOnline -UserPrincipalName atlanticadmin@maillie.com
+Connect-ExchangeOnline -UserPrincipalName email
 Connect-MsolService 
 $users = @(
-"LimerickTrainingRM144@maillie.com",
-"LimerickTrainingRM145@maillie.com",
-"LimerickConferenceRM247@Maillie.com",
-"LimerickConferenceRM114@Maillie.com",
-"LimerickHuddleRM219@Maillie.com",
-"LimerickHuddleRM120@Maillie.com",
-"newcastletrainingroom@Maillie.com",
-"newcastleboardroom@Maillie.com",
-"wcsmallcr@Maillie.com",
-"wclargecr@Maillie.com",
-"wcmedcr@Maillie.com"
+"email1",
+"email2"
 )
 
 foreach($user in $users)
@@ -26,52 +17,52 @@ foreach($user in $users)
 
 Set-OrganizationConfig -OnlineMeetingsByDefaultEnabled $false
 
-Get-MailboxFolderPermission -Identity  gskimmigration:\ -user swagstaff@klaskolaw.com
-Get-MailboxFolderPermission -Identity  gskimmigration:\ -user hsawyer@klaskolaw.com
+Get-MailboxFolderPermission -Identity  gskimmigration:\ -user email
+Get-MailboxFolderPermission -Identity  gskimmigration:\ -user email
 
-Get-MailboxFolderPermission -Identity haleonimmigration:\ -user swagstaff@klaskolaw.com
-Get-MailboxFolderPermission -Identity  haleonimmigration:\ -user hsawyer@klaskolaw.com
-
-
-
-Add-MailboxFolderPermission -Identity gskimmigration:\ -User "hsawyer@klaskolaw.com" -AccessRights Reviewer
-Add-MailboxFolderPermission -Identity gskimmigration:\Inbox -User "hsawyer@klaskolaw.com" -AccessRights Reviewer
-
-Add-MailboxFolderPermission -Identity haleonimmigration:\ -User "hsawyer@klaskolaw.com" -AccessRights Reviewer
-Add-MailboxFolderPermission -Identity haleonimmigration:\Inbox -User "hsawyer@klaskolaw.com" -AccessRights Reviewer
-
-Add-MailboxFolderPermission -Identity gskimmigration:\ -User "swagstaff@klaskolaw.com" -AccessRights Reviewer
-Add-MailboxFolderPermission -Identity gskimmigration:\Inbox -User "swagstaff@klaskolaw.com" -AccessRights Reviewer
-
-Add-MailboxFolderPermission -Identity haleonimmigration:\ -User "swagstaff@klaskolaw.com" -AccessRights Reviewer
-Add-MailboxFolderPermission -Identity haleonimmigration:\Inbox -User "swagstaff@klaskolaw.com" -AccessRights Reviewer
+Get-MailboxFolderPermission -Identity haleonimmigration:\ -user email
+Get-MailboxFolderPermission -Identity  haleonimmigration:\ -user email
 
 
 
-Get-MailboxStatistics -Identity DWiser@dynamicaqs.com | Select *TotalItemSize*
+Add-MailboxFolderPermission -Identity gskimmigration:\ -User "email" -AccessRights Reviewer
+Add-MailboxFolderPermission -Identity gskimmigration:\Inbox -User "email" -AccessRights Reviewer
+
+Add-MailboxFolderPermission -Identity haleonimmigration:\ -User "email" -AccessRights Reviewer
+Add-MailboxFolderPermission -Identity haleonimmigration:\Inbox -User "email" -AccessRights Reviewer
+
+Add-MailboxFolderPermission -Identity gskimmigration:\ -User "email" -AccessRights Reviewer
+Add-MailboxFolderPermission -Identity gskimmigration:\Inbox -User "email" -AccessRights Reviewer
+
+Add-MailboxFolderPermission -Identity haleonimmigration:\ -User "email" -AccessRights Reviewer
+Add-MailboxFolderPermission -Identity haleonimmigration:\Inbox -User "email" -AccessRights Reviewer
+
+
+
+Get-MailboxStatistics -Identity email | Select *TotalItemSize*
 
 
 Get-Mailbox -Identity 
 
 
-$ExchangeGUID = Get-Mailbox DWiser@dynamicaqs.com | Select-Object -ExpandProperty ExchangeGUID
+$ExchangeGUID = Get-Mailbox email | Select-Object -ExpandProperty ExchangeGUID
 Get-MailboxFolderStatistics -Identity "$ExchangeGUID" -IncludeAnalysis -FolderScope RecoverableItems | Format-Table Name,ItemsInFolder,FolderSize,*Subject*
 
 
-$ExchangeGUID = Get-Mailbox DWiser@dynamicaqs.com | Select-Object -ExpandProperty ExchangeGUID
+$ExchangeGUID = Get-Mailbox email | Select-Object -ExpandProperty ExchangeGUID
 Set-Mailbox -Identity "$ExchangeGUID" -SingleItemRecoveryEnabled $false
 
 
-$ExchangeGUID = Get-Mailbox DWiser@dynamicaqs.com  | Select-Object -ExpandProperty ExchangeGUID
+$ExchangeGUID = Get-Mailbox email  | Select-Object -ExpandProperty ExchangeGUID
 Start-ManagedFolderAssistant -Identity "$ExchangeGUID" -HoldCleanup
 
 
-$log = Export-MailboxDiagnosticLogs -Identity DWiser@dynamicaqs.com  -ExtendedProperties
+$log = Export-MailboxDiagnosticLogs -Identity email  -ExtendedProperties
 $xml = [xml]($Log.MailboxLog)
 $xml.Properties.MailboxTable.Property | ? {$_.Name -like "ELC*"}
 
 
-$ExchangeGUID = Get-Mailbox DWiser@dynamicaqs.com  | Select-Object -ExpandProperty ExchangeGUID
+$ExchangeGUID = Get-Mailbox email  | Select-Object -ExpandProperty ExchangeGUID
 Get-MailboxFolderStatistics -Identity "$ExchangeGUID" -IncludeAnalysis -FolderScope RecoverableItems | Format-Table Name,ItemsInFolder,FolderSize,*Subject*
 
 
