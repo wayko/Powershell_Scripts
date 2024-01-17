@@ -1,0 +1,1 @@
+﻿Get-WmiObject -Class win32_product -Filter "name LIKE '%netdoc%'" | Select-Object name, version

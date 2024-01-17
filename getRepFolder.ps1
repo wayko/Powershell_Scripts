@@ -1,1 +1,1 @@
-Get-ChildItemÂ <replicatedfolderpath>Â -recurse | Sort-Object length -descending | select-object -first 9 | ft name,length -wrap â€“auto
+Get-ChildItem <replicatedfolderpath>-recurse | Sort-Object length -descending | select-object -first 9 | ft name,length -wrap “auto"
