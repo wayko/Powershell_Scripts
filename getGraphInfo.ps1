@@ -53,4 +53,4 @@ Update-MgUserExtension -UserId $userId -ExtensionId "a001bf56-b901-455c-ab36-533
 
 Get-MgDirectoryObjectAvailableExtensionProperty | where Name -match "testString"
  -
-Get-MgDirectoryObject -DirectoryObjectId "a001bf56-b901-455c-ab36-533f95f262ae"
+'Get-MgDirectoryObject -DirectoryObjectId "a001bf56-b901-455c-ab36-533f95f262ae"

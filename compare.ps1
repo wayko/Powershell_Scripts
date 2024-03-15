@@ -1,7 +1,7 @@
-﻿$fileA = "F:\Text Files\55Printer.txt"
-$fileB = "F:\Text Files\150Printer.txt"
+﻿$fileA = "F:\Text Files\sonicwallconfig1.txt"
+$fileB = "F:\Text Files\sonicwallconfig2.txt"
 
 $first = Get-Content $fileA
 $second = Get-Content $fileB
 
-Compare-Object $first $second |  where { $_.SideIndicator -eq '=>'}
+Compare-Object  $second $first|  where { $_.SideIndicator -eq '=>'}

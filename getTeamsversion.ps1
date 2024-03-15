@@ -1,0 +1,1 @@
+﻿start-process msiexec.exe -Wait   -ArgumentList "/i 'H:\Firefox Downloads\NetExtender-x64-10.2.338.msi' SERVER=108.5.63.146:4433 DOMAIN=LocalDomain EDITABLE=TRUE NETLOGON=TRUE /qn /norestart ALLUSERS=2"

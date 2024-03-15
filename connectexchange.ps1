@@ -1,4 +1,6 @@
-﻿Connect-ExchangeOnline -UserPrincipalName email
+﻿Install-Module -Name ExchangeOnlineManagement -Force
+
+Connect-ExchangeOnline -UserPrincipalName email
 
 Connect-ExchangeOnline -UserPrincipalName email
 Connect-MsolService 

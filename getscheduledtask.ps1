@@ -1,0 +1,1 @@
+﻿Get-ScheduledTaskInfo -TaskName "PC Restart" | Select-Object "LastRunTime", "TaskName", "TaskPath", "LastTaskResult"
