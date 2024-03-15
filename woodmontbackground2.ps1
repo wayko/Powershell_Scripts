@@ -5,9 +5,9 @@
    
 
 
-    $O365ServiceAccount = "wpadmin@woodmontproperties.com"  
-    $O365ServiceAccountPwd = "b@LLg@m3!@#"  
-    $SharePointSiteURL = "https://woodmont.sharepoint.com/sites/TeamBackground"  
+    $O365ServiceAccount = "username"  
+    $O365ServiceAccountPwd = "password"  
+    $SharePointSiteURL = "https://company.sharepoint.com/sites/TeamBackground"  
     $FileRelativeURL = "/sites/TeamBackground/Shared%20Documents/images/Woodmont-TeamsBackground-202310.jpg"
     $FileRelativeURL2 = "/sites/TeamBackground/Shared%20Documents/images/Woodmont-TeamsBackground-2024.jpg"
     # Change this SharePoint Site URL  
