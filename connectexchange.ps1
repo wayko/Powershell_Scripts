@@ -1,8 +1,8 @@
 ﻿Install-Module -Name ExchangeOnlineManagement -Force
 
-Connect-ExchangeOnline -UserPrincipalName email
+Connect-ExchangeOnline -UserPrincipalName josystem@edisonlearning.com email
+Get-ADDomain -Identity edisonschools.net | Outcd -File c:\temp\domain.tx
 
-Connect-ExchangeOnline -UserPrincipalName email
 Connect-MsolService 
 $users = @(
 "email1",

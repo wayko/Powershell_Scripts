@@ -1,0 +1,1 @@
+﻿add-computer –domainname “YourDomainName” -restart

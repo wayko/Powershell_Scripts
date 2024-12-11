@@ -8,3 +8,5 @@ Get-MsolUser | Sort-Object -Property Userprincipalname
  Set-MsolDomainAuthentication -Authentication Managed -DomainName "ptsamerica.com"
 
  Convert-MsolDomainToStandard -DomainName "ptsamerica.com"
+
+ get

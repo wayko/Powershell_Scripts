@@ -1,0 +1,1 @@
+﻿Start-Process C:\Windows\System32\msiexec.exe -ArgumentList "/x {C6BA8403-A8E7-42D8-9958-F5D23ABB4349}"

@@ -1,0 +1,1 @@
+﻿Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Select DisplayName, ItemCount, TotalItemSize | Sort-Object TotalItemSize -Descending | Export-Csv -Path "C:\MailboxSizes.csv" -NoTypeInformation
