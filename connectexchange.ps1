@@ -3,6 +3,12 @@
 Connect-ExchangeOnline -UserPrincipalName josystem@edisonlearning.com email
 Get-ADDomain -Identity edisonschools.net | Outcd -File c:\temp\domain.tx
 
+
+Get-DistributionGroup -Identity info | Select Name,PrimarySmtpAddress,
+  @{L="EmailAddresses";E={$_.EmailAddresses | ? {$_.PrefixString -ceq "aliases"} | % {$_.aliases}}} 
+
+  Set-DistributionGroup -Identity "List name" -Alias @{remove="alias@contoso.com"}
+  Set-DistributionGroup -Identity "info" -Alias @{remove="info@thetoddgroupinc.com"}
 Connect-MsolService 
 $users = @(
 "email1",
@@ -15,6 +21,9 @@ foreach($user in $users)
   set-MSOLUser -UserPrincipalName $user -PasswordNeverExpires $true 
   $user
 }
+
+
+Get-DistributionGroup   -ResultSize unlimited | select displayname,emailaddresses
  
 
 Set-OrganizationConfig -OnlineMeetingsByDefaultEnabled $false

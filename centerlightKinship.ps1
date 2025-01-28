@@ -48,8 +48,9 @@ function generateEmailAlias($samAccountName)
     return $emailAlias
 }
 
-$allusers = get-aduser -Filter * -SearchBase "OU=users,OU=Kinship,DC=Centerlight,DC=cl,DC=local" -Properties "EmailAddress","whenCreated","EmployeeID"
-
+'$allusers = get-aduser -Filter * -SearchBase "OU=users,OU=Kinship,DC=Centerlight,DC=cl,DC=local" -Properties "EmailAddress","whenCreated","EmployeeID"'
+$matterofcareusers = get-aduser -Filter * -SearchBase "OU=users,OU=matterofcare,DC=Centerlight,DC=cl,DC=local" -Properties "EmailAddress","whenCreated","EmployeeID"
+$clmservicesusers = get-aduser -Filter * -SearchBase "OU=users,OU=CLMServices,DC=Centerlight,DC=cl,DC=local" -Properties "EmailAddress","whenCreated","EmployeeID"
 
 
 $newusers = $allusers | ? { $_.whenCreated -gt (Get-Date ).AddDays(-1) }
@@ -62,6 +63,8 @@ else
 {
     Write-Log -LogOutput "1 user account created in the last day" -Path $LogFile
 }
+
+
 
 foreach($user in $newusers) 
 {
