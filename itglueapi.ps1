@@ -61,7 +61,9 @@ Remove-ITGlueOrganizations -filter_id $OrgID.ID -data $DeleteOrg1
 
 Remove-ITGlueOrganizations -filter_id '1840595' -data $DeleteOrg1
 
-get-help Remove-ITGlueOrganizations
+get-help Remove-ITGlueConfiguations
+
+update-help
 
 $ContactList = (Get-ITGlueContacts -page_size 1000 -organization_id $OrgID.id).data
 foreach ($contactToDelete in $contactList) {
@@ -78,17 +80,17 @@ foreach ($contactToDelete in $contactList) {
 }
 
 
-Get-ITGlueOrganizations -filter_name "Awisco"
+#Get-ITGlueOrganizations -filter_name "Awisco"
 
-$configuration = Get-ITGlueConfigurations -filter_organization_id "1273235" -page_size 1000
+#$configuration = Get-ITGlueConfigurations -filter_organization_id "1273235" -page_size 1000
 
-foreach($device in $configuration)
-{
-    $attribute = $device.data | Select-Object attributes
+#foreach($device in $configuration)
+#{
+  #  $attribute = $device.data | Select-Object attributes
 
     
-}
-foreach($item in $attribute)
-{
-    $item.attributes | export-csv f:\devices.csv -NoTypeInformation -Append
-}
+#}
+#foreach($item in $attribute)
+#{
+ #   $item.attributes | export-csv f:\devices.csv -NoTypeInformation -Append
+#}
